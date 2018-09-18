@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+    <meta charset="UTF-8">
+    <title>NATs suck</title>
+		<link rel="stylesheet" href="{% static 'read/css/blog_post.css' %}">
+  </head>
+
+	<body>
+		
+    <div class="menubar">
+      <a href="/read/">home</a>
+      <a href="#posts">posts</a>
+      <a href="#contact">contact</a>
+    </div>
+
+		<div class="postbar">
+			<p>articles<br>
+				 --------</p>
+      <a href="/read/nat">NATs suck</a>
+      <a href="/read/sql">SQL is easy</a>
+		</div>
+
+		<div class="textBody">
+
+			<booming><center>Gather 'round, kiddos!</center></booming><br>
+			<center>I'm gonna learn you 'bout <vocab>NATs</vocab>.</center><br>
+
+			<p><vocab>NATs</vocab>, or "Network Address Translation" if yer a nerd, are a
+			<b>very important</b> bit of software that runs on just about any <vocab>router</vocab> 
+			you can blow yer hard-earned cash on.  The whole point of a <vocab>NAT</vocab> is to let 
+			<b>lots of devices</b> use <b>one</b> IP address.</p>
+
+			<p>It does this by giving itself an internet <vocab>IP address</vocab>, then 
+			handing out to yer home network a bunch of dummy 
+			<vocab>IP addresses</vocab> that only make sense to the router and your devices.   
+			Then when one of your devices accesses somewhere on the internet through yer
+			<vocab>router</vocab>, the <vocab>NAT</vocab> 
+			tells the internet the data's coming directly from the <vocab>router</vocab>.  
+			When the reply comes back, it remembers the conversation, and knows which of 
+			your devices on your home network to forward the reply to.</p>
+
+			<p><ben>"Gramps, that sounds complicated <b>af</b>, why don't we just give normal 
+			IP addresses to everything?"</ben></p>
+
+			<p>Blame the <vocab>IETF</vocab>, the crew of folks who decide how all this internet stuff 
+			works - the wizards behind the internet's curtain, so to speak.  
+			When they made the internet, they thought 3.7 billion
+			possible <vocab>IP addresses</vocab> were enough (ha).  We ran out almost <b>immediately</b>, 
+			so now our 
+			devices get to share them.  <vocab>IPv6</vocab> fixes this by giving us around 340 billion 
+			billion billion <b>billion</b> <vocab>IP addresses</vocab>, but at the rate we're going, 
+			we won't be using that fully for another half a <i>damn</i> century.  
+			Until that happens, we're stuck 
+			rationing <vocab>IP addresses</vocab> and sharing them with <vocab>NATs</vocab>.</p>
+
+														<center><p>-----</p></center>
+
+			<p>Let's get a bit more detailed.  A <vocab>NAT</vocab> separates a router into 
+			two <vocab>zones</vocab>:</p>
+
+			<p>-the <b>outside</b> <vocab>zone</vocab>, the one the internet sees,
+			or the <vocab>WAN</vocab> (<b>wide</b> area network), and:<br>
+			-the <b>inside</b> <vocab>zone</vocab>, the one your home network sees, 
+			or the <vocab>LAN</vocab> (<b>local</b> area network).</p>
+
+			<p>When ya hook this bad jackson up, it'll automatically grab an
+			<vocab>IP address</vocab> from the internet, and attach it to the <vocab>WAN</vocab>
+			zone of the router.  The internet sees the <vocab>WAN zone</vocab>, and near as 
+			it can tell, the router is a normal device with a	normal <vocab>IP address</vocab>.</p>
+
+			<p>Over on the <vocab>LAN</vocab> side of things, your router has assigned itself
+			a <b>completely different</b> <vocab>IP address</vocab>, one in a range of 
+			<vocab>IP addresses</vocab> reserved by
+			the <vocab>IETF</vocab> <b>specifically not to
+			work on the internet</b> because they're <b>just</b> for <vocab>private</vocab> networks.</p>
+
+			<p><vocab>Private IP addresses</vocab> similar to the router's <vocab>LAN IP address</vocab> 
+			but ending in a different number (these <vocab>IP addresses</vocab> are called 
+			"on <vocab>subnet</vocab> with one another") are handed out to devices connecting to
+			your <vocab>router</vocab>, forming your home network, or your <vocab>LAN</vocab>.  To
+			all devices on your <vocab>LAN</vocab>, the router's <vocab>LAN IP address</vocab> is 
+			considered the <vocab>gateway</vocab>, or the way out to the wild and lovable world of
+			the internet.</p>
+
+			<p>The final piece of the puzzle is the actual translation part, the bit that glues
+			the <vocab>WAN</vocab> and <vocab>LAN</vocab> zones together.  When your computer located
+			on your <vocab>LAN</vocab> tries sending a request to a website, it'll shoot that
+			request toward your <vocab>router's LAN IP address</vocab>, which as you <b>hopefully</b> 
+			remember your computer considers its <vocab>gateway</vocab>. It does this because 
+			your computer knows the website isn't on your <vocab>LAN</vocab>, so it needs to get to the 
+			<vocab>WAN</vocab>.</p>
+			
+			<p>Pay attention, cos this is where it gets tricky and I ain't fond of repeatin'
+			myself.  Talkin' to you, Jimmy.  See, the <vocab>NAT</vocab> knows that the internet
+			doesn't allow <vocab>private IP addresses</vocab> through its tubes, so it does some
+			forgin' and overwrites the <vocab>FROM: IP address</vocab> in the request to its <b>own</b>
+			<vocab>WAN IP address</vocab>, and writes down the:<br><br>
+			-<vocab>TO: IP address</vocab> (the website server's), the<br>
+			-<vocab>FROM: port number</vocab> (the <vocab>port</vocab> your computer randomly chose to
+			start the conversation), and<br>
+			-<vocab>TO: port number</vocab> (the <vocab>port</vocab> the website server's using)<br><br>
+			...in its memory.</p>
+			
+			<p>When the site on the internet replies to your computer's request, that reply goes to
+			your <vocab>router's WAN</vocab>, and the <vocab>router</vocab> checks the list it's
+			been keeping of conversations between <vocab>LAN</vocab> devices and the internet.  
+			When it finds a conversation matching the reply's:<br><br>
+			-<vocab>FROM: IP address</vocab> (the website server's),<br>
+			-<vocab>FROM: port number</vocab> (the <vocab>port</vocab> the website's using), and<br>
+			-<vocab>TO: port number</vocab> (the <vocab>port</vocab> your computer started the 
+			conversation with),<br><br>
+			...it realizes that the reply is for <b>your</b> computer in its <vocab>LAN zone</vocab>,
+			and forwards the reply along to it.</p>
+
+			<booming><center><p>Phew.</p></center></booming>
+
+			<p><ben>"So what if you need to start a conversation from the WAN side with a computer
+			on your LAN?  Can you?"</ben></p>
+
+			<p>Good catch, m'boy!  This is why, as I always say, <vocab>NATs</vocab> suck; you can't.  
+			If a request is sent to the router and it doesn't match an <b>already started</b> 
+			conversation in its <vocab>NAT table</vocab>, it simply <b>discards the request</b>.  There's
+			just not enough information in the request itself for the <vocab>router</vocab> to know
+			what computer on its <vocab>LAN</vocab> you're trying to talk to.  Unless...</p>
+
+			<p><jimmy>"Tell us, Gramps!  Unless what?!"</jimmy></p>
+
+			<p>...UNLESS you've added to the <vocab>NAT</vocab> what're called 
+			<vocab>port forwarding</vocab> rules.  These rules state that <b>if a request comes 
+			in with the rule's <vocab>TO: port number</vocab>, it's to be sent to the 
+			<vocab>LAN</vocab> device listed in the rule</b>.  So again, the only ways a 
+			device on the <vocab>LAN</vocab> can be contacted are if the request matches an 
+			<b>existing conversation in the <vocab>NAT table</vocab></b>, or it matches a 
+			<b><vocab>port forwarding</vocab> rule</b>.
+
+			<p><ben>"That doesn't make any sense.  How does remote access software get 
+			into your computer, then?</ben></p>
+
+			<p>Ayyyep.  Like you say, <vocab>NATs</vocab> make the internet... complicated.  The
+			reason you rarely need to use <vocab>port forwarding</vocab> is that we've just learned
+			to work around <vocab>NATs</vocab> over the years, or nothing would get done.  There's a
+			bag of tricks called <vocab>NAT traversal</vocab> techniques that let you get past this 
+			pain in the rear; for example, with the remote access software you mentioned Ben, the
+			computer being accessed <b>and</b> the remote computer <b>both</b> reach out to a 
+			middleman server computer on the internet that isn't behind a <vocab>NAT</vocab>, and
+			both computers communicate through that.  What a pain.</p>
+
+			<p>Alright kiddos, that's all I've got.  Ice cream?</p>
+
+			<p><booming>--more to come--</booming></p>
+			<!-- TODO:
+				-talk about port forwarding
+			-->
+
+		</div>
+	</body>
+</html>
+

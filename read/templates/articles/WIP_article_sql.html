@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+    <meta charset="UTF-8">
+    <title>SQL</title>
+		<link rel="stylesheet" href="{% static 'read/css/blog_post.css' %}">
+  </head>
+
+	<body>
+    <div class="menubar">
+      <a href="/read/">home</a>
+      <a href="#posts">posts</a>
+      <a href="#contact">contact</a>
+    </div>
+
+		<div class="postbar">
+			<p>articles<br>
+				 --------</p>
+      <a href="/read/nat">NATs suck</a>
+      <a href="/read/sql">SQL is easy</a>
+		</div>
+
+		<div class="textBody">
+			<p>SQL, Structured Query Language, is both a piece of server software which hosts
+			and keeps organized a database system and a, well, <i>structured language</i>
+			for interacting with it and <i>querying</i> the database.</p>
+			
+			<p>That's a mouthful.  An SQL database is essentially a collection of spreadsheets, 
+			which it calls <vocab>tables</vocab>.  Tables have, just like spreadsheets,
+			<vocab>columns</vocab> and <vocab>rows</vocab>.  
+			Tables are generally used to represent a list of objects.</p>
+			
+			<p>Let's look at a table.  This table's named <i>Partiers</i>.</p>
+			
+			<table>
+				<tr>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>PhoneNumber</th>
+					<th>Cool?</th>
+				</tr>
+				<tr>
+					<td>Tristán</td>
+					<td>Peura</td>
+					<td>555-6477</td>
+					<td>True</td>
+				</tr>
+				<tr>
+					<td>Nathan</td>
+					<td>Van Houten</td>
+					<td>555-8580</td>
+					<td>False</td>
+				</tr>
+				<tr>
+					<td>Vartolomej</td>
+					<td>Dirkx</td>
+					<td>555-4881</td>
+					<td>True</td>
+				</tr>
+				<tr>
+					<td>Károly</td>
+					<td>Janssens</td>
+					<td>555-5338</td>
+					<td>True</td>
+				</tr>
+				<tr>
+					<td>Kasper</td>
+					<td>Kovačević</td>
+					<td>555-1720</td>
+					<td>False</td>
+				</tr>
+			</table>
+			
+			<p>As you can see, each row represents <i>one</i> of the objects in 
+			the list (in this case, a partier), and 
+			each column represents a <i>property</i> of those objects that, at least in theory,
+			most objects will have a value for (otherwise, that row will have an empty, or
+			"NULL" value, in that column).  Each "cell" in spreadsheet
+			terms, or individual piece of data (like Kasper's first name, or phone number)
+			is called a <vocab>field</vocab>.<p>
+			
+			<p>--MORE STUFF IS COMING HERE--<br>(that's what she said)</p>
+			<!--TODO:
+			 -demonstrate once each of the common SQL operations.  maybe a few SELECTs.
+			 -two more tables.  one to show JOIN, one to show UNION
+			 -explain schema - column typing, metadata
+			-->
+
+			<p>You might ask: "Why SQL?"  Why didn't we settle on keeping all data that programs store
+			in <i>normal</i> spreadsheets, or text files, or what have you?  Why do we need all
+			of this convoluted standard query syntax?</p>
+			
+			<p><b>SQL is designed to be as efficient as is <i>computationally possible</i>.<br>
+			Interacting through queries with a well-designed database - 
+			one with few, descriptive tables only occasionally
+			needing to perform joins - is somewhere in the ballpark of 
+			an <i>order of magnitude</i> (ten <i>times</i>)
+			faster performing than its non-SQL database serving cousins.  So yeah.  Use SQL.</b><p>
+		</div>
+	
+	</body>
+</html>
+

@@ -1,0 +1,188 @@
+{% load static %}
+
+/* --------Fonts-------- */
+@import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Poor+Story');
+@import url('https://fonts.googleapis.com/css?family=Neucha');
+
+body {font-family: 'Kosugi Maru', sans-serif;
+			font-size:18px;
+}
+
+/* -----Custom Tags------ */
+code {font-family: 'VT323', monospace;
+			background-color:#4D76FA;
+			color: #FBFBFC;
+ 			font-size: 30px;
+			border-style: solid;
+			border-radius: 4px;
+			padding: 5px;
+}
+
+code:before {
+	content: "~/: ";
+}
+
+booming {
+	font-size: 50px;
+	text-align: center;
+	font-style: italic;
+}
+
+sidePoint {
+	font-size: 15px;
+	text-align: center;
+	font-style: italic;
+}
+
+vocab {
+	color: #7998FB;
+}
+
+/* Jimmy's a good, cute kid, but he's easily distracted and 
+	 can be a bit slow to grasp things, sometimes. */
+jimmy {
+	font-family: 'Neucha', cursive;
+	font-style: italic;
+	font-size: 21px;
+}
+
+jimmy p {
+	text-align: center;
+}
+
+/* Ben's a sharp cookie. Overuses memes and drives me nuts sometimes..*/
+
+ben {
+	font-family: 'Poor Story', cursive;
+	font-style: italic;
+}
+
+/* Can't decide on a girl name, so for now you're just "girl".  */
+
+girl {
+	font-family: 'Indie Flower', cursive;
+}
+
+/* ---------Colors-------- */
+html {background-color: rgba(109, 109, 109, 0.9);}
+body {color:#FBFBFC;}
+table, th, td {
+	border-color: #D6D6D7;
+	color: #FBFBFC;
+}
+tr:hover {background-color: #8A8A8A;}
+tr:nth-child(even) {background-color: rgba(77, 118, 250, 0.2)}
+tr:nth-child(even):hover {background-color: rgba(77, 118, 250, 0.7)}
+
+
+/* ----------Margins---------- */
+
+.textBody {
+	margin: 100px 100px 100px 100px
+}
+
+
+/* -----------Tables---------- */
+
+table {
+	border-collapse: collapse;
+	font-family: 'VT323', monospace;
+ 	font-size: 22px;
+	text-align: center;
+	border-style: solid;
+	border-width: 3px;
+}
+
+th {
+	border-style: solid;
+	border-width: 3px;
+	padding: 10px;
+	text-align: center;
+	font-weight: normal;
+}
+
+td {
+	border-style: solid;
+	border-width: 1px;
+	padding: 10px;
+	text-align: center;
+}
+
+/* -----parallax effects------ */
+/*
+.starry-background {
+	transform: translateZ(-200px) scale(1.0);
+	z-index: 5;
+	position: relative;
+}
+
+.textBody {
+	transform: translateZ(200px) scale(1.0);
+	z-index: 1;
+}
+*/
+
+body {
+	background-image: '../img/stars_tall.png';
+	min-height:2000px;
+}
+
+/* -------animations---------*/
+
+/* ------one-time-use-stuff----- */
+
+.menubar {
+	overflow: hidden;
+	background-color: black;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 95px;
+	height: 100%;
+}
+
+.menubar a {
+	margin: auto;
+	float: left;
+	display: block;
+	color: #4D76FA;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transform: rotate(-5deg);
+}
+
+.menubar a:click {}
+
+.postbar {
+	overflow: hidden;
+	background-color: black;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 95px;
+	height: 100%;
+}
+
+.postbar p {
+	margin: auto;
+	float: left;
+	display: block;
+	color: #4D76FA;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.postbar a {
+	margin: auto;
+	float: left;
+	display: block;
+	color: #4D76FA;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
