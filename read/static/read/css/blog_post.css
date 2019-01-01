@@ -60,6 +60,10 @@ ben {
 	font-style: italic;
 }
 
+ben p {
+	text-align: center;
+}
+
 /* Can't decide on a girl name, so for now you're just "girl".  */
 
 girl {

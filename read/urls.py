@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('sql', views.article_sql, name='article_sql'),
     path('nat', views.article_nat, name='article_nat'),
+    path('dns', views.article_dns, name='article_dns'),
 ]
 

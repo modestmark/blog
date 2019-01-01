@@ -9,4 +9,7 @@ def article_sql(request):
 
 def article_nat(request):
   return render(request,'articles/WIP_article_nat.html')
+
+def article_dns(request):
+  return render(request,'articles/WIP_article_dns.html')
 # Create your views here.

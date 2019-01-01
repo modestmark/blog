@@ -15,9 +15,80 @@
       <a href="#contact">contact</a>
     </div>
 
+		<div class="postbar">
+			<p>articles<br>
+				 --------</p>
+      <a href="/read/nat">NATs suck</a>
+      <a href="/read/sql">SQL is easy</a>
+		</div>
+		
 		<div class="textBody">
 
-			<p>POST GOES HERE</p>
+			<booming><p>What's <vocab>DNS</vocab>, you ask?</p></booming>
+
+			<center><p>Let me tell ya about good ol' landline phones instead.</p></center>
+
+			<p>Back in the ol' days, we didn't have smartphones.  When you wanted to call
+			someone, you couldn't just pick up the phone and hit the "call George" button.  Ya
+			had to know George's phone number, and you had to dial it <b>every time</b>.  Times 
+			were tough!</p>
+
+			<p>Thankfully, we had phonebooks.  If ya couldn't remember George's number, you'd
+			rummage around in the drawer til you found the massive brick of dead trees, you'd
+			thumb through the pages til you found him, and you'd find his home number.  Then 
+			you'd write it down on a piece of paper and tape it to the phone, because you and 
+			George go <b>way</b> back, and you don't want to have to go through that song 
+			and dance every time you call 'im.</p>
+
+			<p><vocab>IP addresses</vocab> are the internet's phone numbers.  <vocab>DNS</vocab> 
+			(Domain Name Service) is 
+			the internet's phonebook.  Whenever you go to, say, <u>facebook.com</u> in your 
+			browser, yer device looks up the <vocab>IP address</vocab> in yer local 
+			<vocab>DNS</vocab> server.  Then, usually, your computer or phone or whatever 
+			temporarily <vocab>caches</vocab> 
+			the website and IP info, just like you'd have written George's number down on that 
+			slip of paper and taped it to the phone.  <b>Way</b> faster!</p>
+
+			<ben><p>But who maintains those DNS servers, and how does your computer know where
+			to find 'em?</p></ben>
+
+			<p>By default devices'll just ask yer <vocab>gateway</vocab> DNS queries, which 
+			will go through your <vocab>ISP</vocab>, and all <vocab>ISPs</vocab> have DNS servers.  
+			As to "who maintains em", that's... complicated, and not a thing ya ever really need
+			to know unless you're working for an <vocab>ISP</vocab> or experimenting with DNS itself.</p>
+
+			<jimmy><p>C'mon, Gramps!  Pleeeeeease???</p></jimmy>
+
+			<p>Oh, fine, the <i>third</i> question mark did me in; ya know me too well.  
+			<vocab>DNS</vocab> works <b>hierarchically</b>, and in a <b>distributed</b> fashion.  
+			No one person or entity manages all of <vocab>DNS</vocab>.</p>
+			
+			<p>Let's say you're going 
+			to <u>images.google.com</u>.  Assuming your local <vocab>DNS</vocab> server didn't 
+			already have that site 
+			<vocab>cached</vocab> (the <vocab>caching</vocab> happens at every level of 
+			<vocab>DNS</vocab>, including on your device itself), the <vocab>DNS</vocab> would 
+			start by querying a <vocab>root</vocab> level <vocab>DNS</vocab> server, which would 
+			point it in the direction of the next level down the hierarchy, the 
+			<vocab>.com TLD</vocab> (top-level domain). The TLD will point us in the direction of
+			the google <vocab>SLD</vocab> (second-level domain), and the <vocab>SLD</vocab> 
+			would point us to the the last rung down we need, the <vocab>sub-domain</vocab> 
+			level, where we'd find <u>images.google.com</u> itself, <b>finally</b>.</p>
+			
+			<p>The <vocab>sub-domain</vocab> level gives your <vocab>DNS</vocab> server the 
+			<vocab>IP address</vocab>, and finally your <vocab>DNS</vocab> server forwards that 
+			information back to your device (after presumably <vocab>caching</vocab> it first, 
+			because the server <b>definitely</b> doesn't want to go through all that again 
+			anytime soon).	And now, after <b>all that nonsense</b>, your device knows the 
+			<vocab>IP address</vocab> of <u>images.google.com</u>, and can go to the page.</p>
+
+			<p>Aren't you glad you asked?!</p>
+
+			<jimmy><p>"No."</p></jimmy>
+
+			<ben><p>"Absolutely not.  Wow."</p></ben>
+
+			<p>Buncha damn <i>ingrates</i>.</p>
 
 		</div>
 	</body>
