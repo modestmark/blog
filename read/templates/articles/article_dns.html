@@ -19,7 +19,8 @@
 			<p>articles<br>
 				 --------</p>
       <a href="/read/nat">NATs suck</a>
-      <a href="/read/sql">SQL is easy</a>
+			{#<a href="/read/sql">SQL is easy</a>#}
+      <a href="/read/dns">What's DNS??</a>
 		</div>
 		
 		<div class="textBody">
@@ -41,23 +42,26 @@
 			and dance every time you call 'im.</p>
 
 			<p><vocab>IP addresses</vocab> are the internet's phone numbers.  <vocab>DNS</vocab> 
-			(Domain Name Service) is 
+			(<vocab>Domain Name Service</vocab>) is 
 			the internet's phonebook.  Whenever you go to, say, <u>facebook.com</u> in your 
 			browser, yer device looks up the <vocab>IP address</vocab> in yer local 
 			<vocab>DNS</vocab> server.  Then, usually, your computer or phone or whatever 
 			temporarily <vocab>caches</vocab> 
-			the website and IP info, just like you'd have written George's number down on that 
+			the website and <vocab>IP</vocab> info, just like you'd 
+			have written George's number down on that 
 			slip of paper and taped it to the phone.  <b>Way</b> faster!</p>
 
-			<ben><p>But who maintains those DNS servers, and how does your computer know where
-			to find 'em?</p></ben>
+			<ben><p>"But who maintains those DNS servers, and how does your computer know where
+			to find 'em?"</p></ben>
 
-			<p>By default devices'll just ask yer <vocab>gateway</vocab> DNS queries, which 
-			will go through your <vocab>ISP</vocab>, and all <vocab>ISPs</vocab> have DNS servers.  
+			<p>By default devices'll just ask yer <vocab>gateway</vocab> <vocab>DNS</vocab> queries, which 
+			will go through your <vocab>ISP</vocab>, and all <vocab>ISPs</vocab> 
+			have <vocab>DNS</vocab> servers.  
 			As to "who maintains em", that's... complicated, and not a thing ya ever really need
-			to know unless you're working for an <vocab>ISP</vocab> or experimenting with DNS itself.</p>
+			to know unless you're working for an <vocab>ISP</vocab> or experimenting 
+			with <vocab>DNS</vocab> itself.</p>
 
-			<jimmy><p>C'mon, Gramps!  Pleeeeeease???</p></jimmy>
+			<jimmy><p>"C'mon, Gramps!  Pleeeeeease???"</p></jimmy>
 
 			<p>Oh, fine, the <i>third</i> question mark did me in; ya know me too well.  
 			<vocab>DNS</vocab> works <b>hierarchically</b>, and in a <b>distributed</b> fashion.  
@@ -69,9 +73,10 @@
 			<vocab>cached</vocab> (the <vocab>caching</vocab> happens at every level of 
 			<vocab>DNS</vocab>, including on your device itself), the <vocab>DNS</vocab> would 
 			start by querying a <vocab>root</vocab> level <vocab>DNS</vocab> server, which would 
-			point it in the direction of the next level down the hierarchy, the 
-			<vocab>.com TLD</vocab> (top-level domain). The TLD will point us in the direction of
-			the google <vocab>SLD</vocab> (second-level domain), and the <vocab>SLD</vocab> 
+			point it in the direction of the next level down the hierarchy, the <u>.com</u>
+			<vocab>TLD</vocab> (<vocab>top-level domain</vocab>). The TLD will point us in the 
+			direction of the <u>google.com</u> <vocab>SLD</vocab> (<vocab>second-level domain</vocab>), 
+			and the <vocab>SLD</vocab> 
 			would point us to the the last rung down we need, the <vocab>sub-domain</vocab> 
 			level, where we'd find <u>images.google.com</u> itself, <b>finally</b>.</p>
 			

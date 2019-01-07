@@ -8,8 +8,8 @@ def article_sql(request):
   return render(request,'articles/WIP_article_sql.html')
 
 def article_nat(request):
-  return render(request,'articles/WIP_article_nat.html')
+  return render(request,'articles/article_nat.html')
 
 def article_dns(request):
-  return render(request,'articles/WIP_article_dns.html')
+  return render(request,'articles/article_dns.html')
 # Create your views here.
