@@ -82,12 +82,38 @@
 			terms, or individual piece of data (like Kasper's first name, or phone number)
 			is called a <vocab>field</vocab>.<p>
 			
-			<p>--MORE STUFF IS COMING HERE--<br>(that's what she said)</p>
-			<!--TODO:
-			 -demonstrate once each of the common SQL operations.  maybe a few SELECTs.
-			 -two more tables.  one to show JOIN, one to show UNION
-			 -explain schema - column typing, metadata
-			-->
+			<p>Now, <vocab>SQL</vocab>, like I said earlier, partly defines <b>a language 
+			to interact with these tables</b>.  Let's check out a few commands in this 
+			language, with the caveat that there are multiple major flavors of <vocab>SQL</vocab> 
+			out there and that these commands might require slight tweaks for some flavors.  
+			This is just to give yall a taste of what interacting with <vocab>SQL</vocab> is 
+			like, moreso than an actual instructional primer on how to <vocab>SQL</vocab>.
+			BEHOLD</p>
+
+			<p>Need to get some information from the table?  Let's use a <b>SELECT</b> 
+			statement.  I want to invite some people to a party.  Let's get a list.</p>
+
+			<code>SELECT FirstName, PhoneNumber FROM Partiers WHERE Cool? = TRUE</code>
+
+			<table>
+				<tr>
+					<th>FirstName</th>
+					<th>PhoneNumber</th>
+				</tr>
+				<tr>
+					<td>Tristán</td>
+					<td>555-6477</td>
+				</tr>
+				<tr>
+					<td>Vartolomej</td>
+					<td>555-4881</td>
+				</tr>
+				<tr>
+					<td>Károly</td>
+					<td>555-5338</td>
+				</tr>
+			</table>
+
 
 			<p>You might ask: "Why SQL?"  Why didn't we settle on keeping all data that programs store
 			in <i>normal</i> spreadsheets, or text files, or what have you?  Why do we need all
