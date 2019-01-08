@@ -46,31 +46,31 @@
 					<td>Tristán</td>
 					<td>Peura</td>
 					<td>555-6477</td>
-					<td>True</td>
+					<td>TRUE</td>
 				</tr>
 				<tr>
 					<td>Nathan</td>
 					<td>Van Houten</td>
 					<td>555-8580</td>
-					<td>False</td>
+					<td>FALSE</td>
 				</tr>
 				<tr>
 					<td>Vartolomej</td>
 					<td>Dirkx</td>
 					<td>555-4881</td>
-					<td>True</td>
+					<td>TRUE</td>
 				</tr>
 				<tr>
 					<td>Károly</td>
 					<td>Janssens</td>
 					<td>555-5338</td>
-					<td>True</td>
+					<td>TRUE</td>
 				</tr>
 				<tr>
 					<td>Kasper</td>
 					<td>Kovačević</td>
 					<td>555-1720</td>
-					<td>False</td>
+					<td>FALSE</td>
 				</tr>
 			</table>
 			
@@ -91,9 +91,12 @@
 			BEHOLD</p>
 
 			<p>Need to get some information from the table?  Let's use a <b>SELECT</b> 
-			statement.  I want to invite some people to a party.  Let's get a list.</p>
+			statement.  I want to invite some people to a party.  Let's get a guest list 
+			going, here.</p>
 
-			<code>SELECT FirstName, PhoneNumber FROM Partiers WHERE Cool? = TRUE</code>
+			<code>SELECT FirstName, PhoneNumber<br>
+				FROM Partiers<br>
+				WHERE Cool? = TRUE</code><br><br>
 
 			<table>
 				<tr>
@@ -134,9 +137,63 @@
 
 			<p>Right, well, theoretically she's in our growing rolodex now.  Let's check:</p>
 
-			<booming>to be continued when I write more</booming>
+			<code>SELECT * FROM Partiers</code><br><br>
 
+			<table>
+				<tr>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>PhoneNumber</th>
+					<th>Cool?</th>
+				</tr>
+				<tr>
+					<td>Tristán</td>
+					<td>Peura</td>
+					<td>555-6477</td>
+					<td>TRUE</td>
+				</tr>
+				<tr>
+					<td>Nathan</td>
+					<td>Van Houten</td>
+					<td>555-8580</td>
+					<td>FALSE</td>
+				</tr>
+				<tr>
+					<td>Vartolomej</td>
+					<td>Dirkx</td>
+					<td>555-4881</td>
+					<td>TRUE</td>
+				</tr>
+				<tr>
+					<td>Károly</td>
+					<td>Janssens</td>
+					<td>555-5338</td>
+					<td>TRUE</td>
+				</tr>
+				<tr>
+					<td>Kasper</td>
+					<td>Kovačević</td>
+					<td>555-1720</td>
+					<td>FALSE</td>
+				</tr>
+				<tr>
+					<td>Pris</td>
+					<td>Taylor</td>
+					<td>555-8905</td>
+					<td>TRUE</td>
+				</tr>
+			</table>
 
+			<p>Yep.</p>
+
+			<p>There are naturally more ways to interact with <vocab>tables</vocab> in 
+			<vocab>SQL</vocab>, but beyond adding (INSERT) and retrieving (SELECT) data, 
+			I'm only going to show you one more - the all-important JOIN.  Excel nerds, 
+			these are your vlookups (basically).  Non-Excel nerds, this is what you use to 
+			cross-reference tables.  You'll see what I mean in a second.</p>
+
+			<p>Let's say we have another table, 
+			
 			<p>You might ask: "Why SQL?"  Why didn't we settle on keeping all data that programs store
 			in <i>normal</i> spreadsheets, or text files, or what have you?  Why do we need all
 			of this convoluted standard query syntax?</p>
