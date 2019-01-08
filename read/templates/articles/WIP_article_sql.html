@@ -114,6 +114,28 @@
 				</tr>
 			</table>
 
+			<p>Let's break that down.  SELECT is the command to retrieve data from a 
+			<vocab>table</vocab>, followed by the names of the <vocab>columns</vocab> 
+			you actually want the data from.  FROM is necessary; you've got to specify 
+			the name of which <vocab>table</vocab> in the <vocab>database</vocab> you want 
+			the data from.  The final bit we added there, the WHERE condition, isn't 
+			<b>necessary</b> for SELECT commands, but without it SELECT will just grab 
+			<b>every row</b>, so we use this to specify only to grab partiers whose "Cool?" 
+			value is TRUE.  I don't need those uncool kids making messes all over my 
+			parents' house while they're out of town.  I ain't cleanin' up after that.</p>
+
+			<p>Alright!  Let's do something else.  One of our closest homies is vouching 
+			for another partier.  Let's throw em in the table.  This partier's name is 
+			Pris Taylor, her number is 555-8905, and from what we <i>hear</i> she's cool.  
+			Let's put her in with another statement, an INSERT:</p>
+
+			<code>INSERT INTO Partiers (FirstName, LastName, PhoneNumber, Cool?) VALUES ( 
+				'Pris', 'Taylor', '555-8905', TRUE)</code>
+
+			<p>Right, well, theoretically she's in our growing rolodex now.  Let's check:</p>
+
+			<booming>to be continued when I write more</booming>
+
 
 			<p>You might ask: "Why SQL?"  Why didn't we settle on keeping all data that programs store
 			in <i>normal</i> spreadsheets, or text files, or what have you?  Why do we need all
