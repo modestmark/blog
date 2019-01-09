@@ -12,4 +12,10 @@ def article_nat(request):
 
 def article_dns(request):
   return render(request,'articles/article_dns.html')
+
+def contact(request):
+  return render(request,'read/contact.html')
+
+def posts(request):
+  return render(request,'read/posts.html')
 # Create your views here.

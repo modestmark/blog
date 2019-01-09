@@ -13,6 +13,7 @@ body {font-family: 'Kosugi Maru', sans-serif;
 
 /* -----Custom Tags------ */
 code {font-family: 'VT323', monospace;
+			display: inline-block;
 			background-color:#4D76FA;
 			color: #FBFBFC;
  			font-size: 30px;
@@ -150,13 +151,21 @@ body {
 
 .menubar a {
 	margin: auto;
+	float: right;
+	display: block;
+	color: #4D76FA;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.menubar p {
+	margin: auto;
 	float: left;
 	display: block;
 	color: #4D76FA;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
-	transform: rotate(-5deg);
 }
 
 .menubar a:click {}

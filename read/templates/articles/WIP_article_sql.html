@@ -9,9 +9,11 @@
 
 	<body>
     <div class="menubar">
+			<p>navigate<br>
+				 --------</p>
       <a href="/">home</a>
-      <a href="#posts">posts</a>
-      <a href="#contact">contact</a>
+      <a href="/read/posts">posts</a>
+      <a href="/read/contact">contact</a>
     </div>
 
 		<div class="postbar">
@@ -117,13 +119,20 @@
 				</tr>
 			</table>
 
+			<p>(Don't worry about the spacing and line breaks in these queries.  
+			<vocab>SQL</vocab>, 
+			like most programming languages, doesn't really care what you do with either, so 
+			just try to make it look organized in a way that makes sense to you.)  Anyway, 
+			here's what we get:</p>
+
 			<p>Let's break that down.  SELECT is the command to retrieve data from a 
 			<vocab>table</vocab>, followed by the names of the <vocab>columns</vocab> 
 			you actually want the data from.  FROM is necessary; you've got to specify 
 			the name of which <vocab>table</vocab> in the <vocab>database</vocab> you want 
 			the data from.  The final bit we added there, the WHERE condition, isn't 
-			<b>necessary</b> for SELECT commands, but without it SELECT will just grab 
-			<b>every row</b>, so we use this to specify only to grab partiers whose "Cool?" 
+			<b>necessary</b> for SELECT queries, but without it SELECT will just grab 
+			<b>every</b> <vocab>row</vocab>, so we use this to specify 
+			only to grab partiers whose "Cool?" 
 			value is TRUE.  I don't need those uncool kids making messes all over my 
 			parents' house while they're out of town.  I ain't cleanin' up after that.</p>
 
@@ -132,10 +141,13 @@
 			Pris Taylor, her number is 555-8905, and from what we <i>hear</i> she's cool.  
 			Let's put her in with another statement, an INSERT:</p>
 
-			<code>INSERT INTO Partiers (FirstName, LastName, PhoneNumber, Cool?) VALUES ( 
-				'Pris', 'Taylor', '555-8905', TRUE)</code>
+			<code>INSERT INTO Partiers<br>(FirstName, LastName, PhoneNumber, Cool?)<br>VALUES<br>( 
+			'Pris', 'Taylor', '555-8905', TRUE)</code>
 
-			<p>Right, well, theoretically she's in our growing rolodex now.  Let's check:</p>
+			<p>Pretty straightforward, right?  INSERT INTO &gt;tablename&lt;, the names of the 
+			<vocab>columns</vocab>, then specify the VALUES in the same order that you specified 
+			the <vocab>columns</vocab>.  Right, well, theoretically she's in our growing 
+			rolodex now.  Let's check:</p>
 
 			<code>SELECT * FROM Partiers</code><br><br>
 
@@ -192,7 +204,123 @@
 			these are your vlookups (basically).  Non-Excel nerds, this is what you use to 
 			cross-reference tables.  You'll see what I mean in a second.</p>
 
-			<p>Let's say we have another table, 
+			<p>Let's say we have another <vocab>table</vocab>, "PartyHouses".  This is what that 
+			<vocab>table</vocab> looks like:
+
+			<table>
+				<tr>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>Address</th>
+				</tr>
+				<tr>
+					<td>Tristán</td>
+					<td>Peura</td>
+					<td>15 Rich Kid Ln</td>
+				</tr>
+				<tr>
+					<td>Nathan</td>
+					<td>Van Houten</td>
+					<td>73 Irradiated Dr</td>
+				</tr>
+				<tr>
+					<td>Vartolomej</td>
+					<td>Dirkx</td>
+					<td>2365 Backwoods St</td>
+				</tr>
+				<tr>
+					<td>Károly</td>
+					<td>Janssens</td>
+					<td>800 Mugging Blvd</td>
+				</tr>
+				<tr>
+					<td>Kasper</td>
+					<td>Kovačević</td>
+					<td>92 Gilded Ln</td>
+				</tr>
+				<tr>
+					<td>Pris</td>
+					<td>Taylor</td>
+					<td>1 Bourgeois Ct</td>
+				</tr>
+			</table>
+
+			<p>We're trying to find a spot for our next rager, but we want to be sure that it's 
+			at a cool person's house.  We don't want them making a big deal out of the mess we 
+			totally leave there.  Buckle up, this is about to get crazy:</p>
+
+			<code>SELECT Partiers.FirstName, Partiers.LastName,<br>
+				Partiers.PhoneNumber, Partiers.Cool?,<br>
+			PartyHouses.Address<br>
+			FROM Partiers<br>
+			JOIN PartyHouses ON Partiers.FirstName=PartyHouses.FirstName</code><br><br>
+
+			<p>Whoa!  Let's break that down real quicklike.  Firstly, you'll notice that since 
+			we're joining multiple <vocab>tables</vocab>, when specifying the columns we want to 
+			SELECT we need to specify which <vocab>table</vocab> each <vocab>column</vocab> is 
+			in using the format &lt;tablename&gt;.&lt;columnname&gt;.  
+			Not a huge deal.  Which <vocab>table</vocab> you use as your FROM only matters 
+			when you're using specific types of JOINs I'll talk about in a second.  Finally, we 
+			do the JOIN itself, which says that FirstName in the Partiers table is equal to 
+			FirstName in the PartyHouses table.  In other words, we want to line up the data 
+			<vocab>fields</vocab> of the rows where the first name matches between the two 
+			<vocab>tables</vocab>.  Phew.  Here's what comes out:</p>
+
+			<table>
+				<tr>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>PhoneNumber</th>
+					<th>Cool?</th>
+					<th>Address</th>
+				</tr>
+				<tr>
+					<td>Tristán</td>
+					<td>Peura</td>
+					<td>555-6477</td>
+					<td>TRUE</td>
+					<td>15 Rich Kid Ln</td>
+				</tr>
+				<tr>
+					<td>Nathan</td>
+					<td>Van Houten</td>
+					<td>555-8580</td>
+					<td>FALSE</td>
+					<td>73 Irradiated Dr</td>
+				</tr>
+				<tr>
+					<td>Vartolomej</td>
+					<td>Dirkx</td>
+					<td>555-4881</td>
+					<td>TRUE</td>
+					<td>2365 Backwoods St</td>
+				</tr>
+				<tr>
+					<td>Károly</td>
+					<td>Janssens</td>
+					<td>555-5338</td>
+					<td>TRUE</td>
+					<td>800 Mugging Blvd</td>
+				</tr>
+				<tr>
+					<td>Kasper</td>
+					<td>Kovačević</td>
+					<td>555-1720</td>
+					<td>FALSE</td>
+					<td>92 Gilded Ln</td>
+				</tr>
+				<tr>
+					<td>Pris</td>
+					<td>Taylor</td>
+					<td>555-8905</td>
+					<td>TRUE</td>
+					<td>1 Bourgeois Ct</td>
+				</tr>
+			</table>
+
+			<p>Boom.  Now we have everything we need to figure out who to ring up.</p>
+
+
 			
 			<p>You might ask: "Why SQL?"  Why didn't we settle on keeping all data that programs store
 			in <i>normal</i> spreadsheets, or text files, or what have you?  Why do we need all
