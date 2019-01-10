@@ -3,7 +3,7 @@
 <html>
 	<head>
     <meta charset="UTF-8">
-    <title>SQL</title>
+    <title>SQL is easy</title>
 		<link rel="stylesheet" href="{% static 'read/css/blog_post.css' %}">
   </head>
 
@@ -26,16 +26,23 @@
 		</div>
 
 		<div class="textBody">
-			<p>SQL, Structured Query Language, is both a piece of server software which hosts
-			and keeps organized a database system and a, well, <i>structured language</i>
-			for interacting with it and <i>querying</i> the database.</p>
+			<p><center><booming>Let's talk about <vocab>databases</vocab>.</booming></center></p>
+			<p><vocab>SQL</vocab>, Structured Query Language, 
+			is both a piece of server software which hosts
+			and keeps organized a <vocab>database</vocab> system and a, well, 
+			<i>structured language</i> for interacting with it and 
+			<vocab>querying</vocab> the <vocab>database</vocab>.</p>
 			
-			<p>That's a mouthful.  An SQL database is essentially a collection of spreadsheets, 
-			which it calls <vocab>tables</vocab>.  Tables have, just like spreadsheets,
+			<p>That's a mouthful.  An <vocab>SQL</vocab> <vocab>database</vocab> is 
+			essentially a collection of spreadsheets, 
+			which it calls <vocab>tables</vocab>.  <vocab>Tables</vocab> have, 
+			just like spreadsheets,
 			<vocab>columns</vocab> and <vocab>rows</vocab>.  
-			Tables are generally used to represent a list of objects.</p>
+			<vocab>Tables</vocab> are generally used to represent 
+			a list of <vocab>objects</vocab>.</p>
 			
-			<p>Let's look at a table.  This table's named <i>Partiers</i>.</p>
+			<p>Let's look at a <vocab>table</vocab>.  This <vocab>table</vocab>'s 
+			named <i>Partiers</i>.</p>
 			
 			<table>
 				<tr>
@@ -76,29 +83,39 @@
 				</tr>
 			</table>
 			
-			<p>As you can see, each row represents <i>one</i> of the objects in 
-			the list (in this case, a partier), and 
-			each column represents a <i>property</i> of those objects that, at least in theory,
-			most objects will have a value for (otherwise, that row will have an empty, or
-			"NULL" value, in that column).  Each "cell" in spreadsheet
+			<p>As you can see, each <vocab>row</vocab> represents <i>one</i> of the 
+			<vocab>objects</vocab> in the list (in this case, a partier), and 
+			each <vocab>column</vocab> represents a <i>property</i> of those 
+			<vocab>objects</vocab> that, at least in theory, most <vocab>objects</vocab> 
+			will have a value for (otherwise, that <vocab>row</vocab> will have an empty, or
+			"NULL" value, in that <vocab>column</vocab>).  Each "cell" in spreadsheet
 			terms, or individual piece of data (like Kasper's first name, or phone number)
 			is called a <vocab>field</vocab>.<p>
 			
 			<p>Now, <vocab>SQL</vocab>, like I said earlier, partly defines <b>a language 
-			to interact with these tables</b>.  Let's check out a few commands in this 
+			to interact with these</b> <vocab>tables</vocab>.  
+			Let's check out a few <vocab>statements</vocab> in this 
 			language, with the caveat that there are multiple major flavors of <vocab>SQL</vocab> 
-			out there and that these commands might require slight tweaks for some flavors.  
+			out there and that these <vocab>statements</vocab> might require 
+			slight tweaks for some flavors.  
 			This is just to give yall a taste of what interacting with <vocab>SQL</vocab> is 
 			like, moreso than an actual instructional primer on how to <vocab>SQL</vocab>.
 			BEHOLD</p>
 
-			<p>Need to get some information from the table?  Let's use a <b>SELECT</b> 
+			<p>Need to get some information from the <vocab>table</vocab>?  
+			Let's use a SELECT 
 			statement.  I want to invite some people to a party.  Let's get a guest list 
 			going, here.</p>
 
 			<code>SELECT FirstName, PhoneNumber<br>
 				FROM Partiers<br>
 				WHERE Cool? = TRUE</code><br><br>
+
+			<p>(Don't worry about the spacing and line breaks in these <vocab>queries</vocab>.  
+			<vocab>SQL</vocab>, 
+			like most programming languages, doesn't really care what you do with either, so 
+			just try to make it look organized in a way that makes sense to you.)  Anyway, 
+			here's what we get:</p>
 
 			<table>
 				<tr>
@@ -119,34 +136,32 @@
 				</tr>
 			</table>
 
-			<p>(Don't worry about the spacing and line breaks in these queries.  
-			<vocab>SQL</vocab>, 
-			like most programming languages, doesn't really care what you do with either, so 
-			just try to make it look organized in a way that makes sense to you.)  Anyway, 
-			here's what we get:</p>
-
-			<p>Let's break that down.  SELECT is the command to retrieve data from a 
+			<p>Let's break that down.  SELECT is the <vocab>statement</vocab> to 
+			retrieve data from a 
 			<vocab>table</vocab>, followed by the names of the <vocab>columns</vocab> 
 			you actually want the data from.  FROM is necessary; you've got to specify 
 			the name of which <vocab>table</vocab> in the <vocab>database</vocab> you want 
 			the data from.  The final bit we added there, the WHERE condition, isn't 
-			<b>necessary</b> for SELECT queries, but without it SELECT will just grab 
+			<b>necessary</b> for SELECT <vocab>queries</vocab>, 
+			but without it SELECT will just grab 
 			<b>every</b> <vocab>row</vocab>, so we use this to specify 
 			only to grab partiers whose "Cool?" 
 			value is TRUE.  I don't need those uncool kids making messes all over my 
 			parents' house while they're out of town.  I ain't cleanin' up after that.</p>
 
 			<p>Alright!  Let's do something else.  One of our closest homies is vouching 
-			for another partier.  Let's throw em in the table.  This partier's name is 
+			for another partier.  Let's throw em in the <vocab>table</vocab>.  
+			This partier's name is 
 			Pris Taylor, her number is 555-8905, and from what we <i>hear</i> she's cool.  
-			Let's put her in with another statement, an INSERT:</p>
+			Let's put her in with another <vocab>statement</vocab>, an INSERT:</p>
 
 			<code>INSERT INTO Partiers<br>(FirstName, LastName, PhoneNumber, Cool?)<br>VALUES<br>( 
 			'Pris', 'Taylor', '555-8905', TRUE)</code>
 
-			<p>Pretty straightforward, right?  INSERT INTO &gt;tablename&lt;, the names of the 
-			<vocab>columns</vocab>, then specify the VALUES in the same order that you specified 
-			the <vocab>columns</vocab>.  Right, well, theoretically she's in our growing 
+			<p>Pretty straightforward, right?  INSERT INTO &lt;tablename&gt;, the names of the 
+			<vocab>columns</vocab>, then specify the VALUES of the <vocab>fields</vocab> 
+			in the same order that you specified 
+			the <vocab>column</vocab> names.  Right, well, theoretically she's in our growing 
 			rolodex now.  Let's check:</p>
 
 			<code>SELECT * FROM Partiers</code><br><br>
@@ -199,10 +214,9 @@
 			<p>Yep.</p>
 
 			<p>There are naturally more ways to interact with <vocab>tables</vocab> in 
-			<vocab>SQL</vocab>, but beyond adding (INSERT) and retrieving (SELECT) data, 
-			I'm only going to show you one more - the all-important JOIN.  Excel nerds, 
-			these are your vlookups (basically).  Non-Excel nerds, this is what you use to 
-			cross-reference tables.  You'll see what I mean in a second.</p>
+			<vocab>SQL</vocab>, but beyond adding data (INSERT) and retrieving data (SELECT), 
+			I'm only going to show you one more - the all-important JOIN.  This is what 
+			you use to cross-reference <vocab>tables</vocab>.</p>
 
 			<p>Let's say we have another <vocab>table</vocab>, "PartyHouses".  This is what that 
 			<vocab>table</vocab> looks like:
@@ -253,17 +267,21 @@
 				Partiers.PhoneNumber, Partiers.Cool?,<br>
 			PartyHouses.Address<br>
 			FROM Partiers<br>
-			JOIN PartyHouses ON Partiers.FirstName=PartyHouses.FirstName</code><br><br>
+			JOIN PartyHouses<br>
+			ON Partiers.FirstName=PartyHouses.FirstName</code><br><br>
 
 			<p>Whoa!  Let's break that down real quicklike.  Firstly, you'll notice that since 
-			we're joining multiple <vocab>tables</vocab>, when specifying the columns we want to 
+			we're JOINing multiple <vocab>tables</vocab>, when specifying the 
+			<vocab>columns</vocab> we want to 
 			SELECT we need to specify which <vocab>table</vocab> each <vocab>column</vocab> is 
 			in using the format &lt;tablename&gt;.&lt;columnname&gt;.  
-			Not a huge deal.  Which <vocab>table</vocab> you use as your FROM only matters 
-			when you're using specific types of JOINs I'll talk about in a second.  Finally, we 
-			do the JOIN itself, which says that FirstName in the Partiers table is equal to 
-			FirstName in the PartyHouses table.  In other words, we want to line up the data 
-			<vocab>fields</vocab> of the rows where the first name matches between the two 
+			Makes sense; it'd be vague otherwise.  
+			Which <vocab>table</vocab> you use as your FROM only matters 
+			when you're using specific types of JOINs beyond the scope of this post.  Finally, we 
+			do the JOIN itself, which says that FirstName in the Partiers <vocab>table</vocab> 
+			is equal to FirstName in the PartyHouses <vocab>table</vocab>.  
+			In other words, we want to line up the data	<vocab>fields</vocab> 
+			of the <vocab>rows</vocab> where the first name matches between the two 
 			<vocab>tables</vocab>.  Phew.  Here's what comes out:</p>
 
 			<table>
@@ -318,20 +336,37 @@
 				</tr>
 			</table>
 
-			<p>Boom.  Now we have everything we need to figure out who to ring up.</p>
+			<p>Boom.  Now we have everything we need to figure out who to hit up.</p>
 
+			<p>That's about all of it.  Obviously there are more <vocab>queries</vocab> 
+			and <vocab>statements</vocab> in <vocab>SQL</vocab> 
+			than these, such as ORDER BY which sorts 
+			output from a SELECT, or DELETE if you want to delete a <vocab>row</vocab>, 
+			but again, this isn't meant to be comprehensive - this is just to show you 
+			what interacting with <vocab>SQL</vocab> is like.</p>
+
+			<p>It's at this point you might be asking, "Why any of this?  Who decided on 
+			<vocab>SQL</vocab>, and why?"  That's because <vocab>SQL</vocab> is designed 
+			to be as computationally efficent <i>as possible</i>.  The whole point here is 
+			efficiency.  And while there are newer, less strict <vocab>database</vocab> 
+			systems out there (referred to as <vocab>No-SQL</vocab> <vocab>database</vocab> 
+			systems) they're not nearly as efficient as a well-planned <vocab>SQL</vocab> 
+			<vocab>database</vocab> system.</p>
+
+			<p>Notice, however, that I stipulated "well-planned".  Heavy use of JOINs in 
+			an application interfacing with an <vocab>SQL</vocab> <vocab>database</vocab> 
+			will <b>kill</b> your efficiency, at which point using a <vocab>No-SQL</vocab> 
+			system would be a better choice (which is why these are generally considered 
+			"prototyping" <vocab>databases</vocab> - generally it's hard 
+			to structure your data well until 
+			you're further into your project.)  Essentially, if you can plan 
+			your <vocab>tables</vocab> such 
+			that data is grouped according to how you'll be accessing it, your 
+			<vocab>database</vocab> will be <b>as fast as it's possible to make it.</b></p>
+
+			<p><center><booming>~fin~</booming></center></p>
 
 			
-			<p>You might ask: "Why SQL?"  Why didn't we settle on keeping all data that programs store
-			in <i>normal</i> spreadsheets, or text files, or what have you?  Why do we need all
-			of this convoluted standard query syntax?</p>
-			
-			<p><b>SQL is designed to be as efficient as is <i>computationally possible</i>.<br>
-			Interacting through queries with a well-designed database - 
-			one with few, descriptive tables only occasionally
-			needing to perform joins - is somewhere in the ballpark of 
-			an <i>order of magnitude</i> (ten <i>times</i>)
-			faster performing than its non-SQL database serving cousins.  So yeah.  Use SQL.</b><p>
 		</div>
 	
 	</body>

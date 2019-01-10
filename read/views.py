@@ -5,7 +5,7 @@ def index(request):
   return render(request,'read/index.html')
 
 def article_sql(request):
-  return render(request,'articles/WIP_article_sql.html')
+  return render(request,'articles/article_sql.html')
 
 def article_nat(request):
   return render(request,'articles/article_nat.html')
