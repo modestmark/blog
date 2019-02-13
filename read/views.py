@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from read.models import blogUser, blogPost
 
 def index(request):
   return render(request,'read/index.html')
@@ -18,4 +19,6 @@ def contact(request):
 
 def posts(request):
   return render(request,'read/posts.html')
-# Create your views here.
+
+def whereami(request):
+  return render(request,'read/whereami.html')

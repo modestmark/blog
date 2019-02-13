@@ -9,5 +9,6 @@ urlpatterns = [
     path('dns', views.article_dns, name='article_dns'),
     path('contact', views.contact, name='contact'),
     path('posts', views.posts, name='posts'),
+    path('whereami', views.whereami, name='whereami'),
 ]
 
