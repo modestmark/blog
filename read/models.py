@@ -9,10 +9,10 @@ class blogUser(models.Model):
 
 class blogPost(models.Model):
   def __str__(self):
-    return self.postName
-  postName = models.CharField(max_length=200)
+    return (self.postName, self.postUrl)
+  postName = models.TextField(default='postname')
   userName = models.ForeignKey(blogUser, on_delete=models.CASCADE)
   dateCreated = models.DateTimeField()
   dateUpdated = models.DateTimeField()
-  filePath = models.FilePathField()
+  postUrl = models.TextField(default='oldmanreffi.com/read/')
 

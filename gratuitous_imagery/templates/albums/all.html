@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+    <meta charset="UTF-8">
+    <title>some dank pixels... in theory</title>
+		<link rel="stylesheet" href="{% static 'gratuitous_imagery/css/image_post.css' %}">
+  </head>
+
+	<body>
+		
+    <div class="menubar">
+			<p>navigate<br>
+				 --------</p>
+      <a href="/">home</a>
+      <a href="/read/posts">posts</a>
+      <a href="/read/contact">contact</a>
+      <a href="/read/whereami">what is this</a>
+    </div>
+
+		<div class="postbar">
+			<p>articles<br>
+				 --------</p>
+      <a href="/read/nat">NATs suck</a>
+      <a href="/read/sql">SQL is easy</a>
+      <a href="/read/dns">What's DNS??</a>
+		</div>
+		
+		<div class="textBody">
+
+      <img src="{% static 'gratuitous_imagery/img/edits/street_snow_cropped.jpg' %}" alt="snow in the streets">
+
+			<p>POST GOES HERE</p>
+
+		</div>
+	</body>
+</html>
+
